@@ -1,0 +1,97 @@
+@import url("colors.css");
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Font Awesome 7 Free Solid", "FiraCode Nerd Font Mono", "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 13px;
+  min-height: 0;
+  color: @fg;
+  margin: 0;
+  padding: 0;
+}
+
+window#waybar {
+  background: alpha(@bg, 1);
+  padding: 4px 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+}
+
+/* Workspace Buttons */
+#workspaces button {
+  padding: 0 5px;
+  margin-right: 6px;
+ /* border-radius: 5px; */
+}
+
+#workspaces button label{
+  padding: 0 6px;
+}
+
+#workspaces button.active label {
+  color: @bg;
+}
+
+#workspaces button:hover {
+  background: alpha(@c0, 0.22);
+}
+
+#workspaces button.active {
+  background: @c4;
+}
+
+/* Small compact items */
+#custom-sys, #custom-net, #clock, #battery, #pulseaudio, #tray, #language, #weather, #custom-weather {
+  padding: 0 8px;
+  margin-left: 1px;
+  margin-right: 1px;
+  /*border-radius: 6px; */
+  font-weight: 600;
+}
+#custom-sys {
+  font-family: "Font Awesome 7 Free Solid", "FiraCode Nerd Font Mono", "JetBrains Mono", monospace;
+}
+
+#custom-sys:hover, #custom-net:hover {
+  background: alpha(@c1, 0.06);
+
+}
+
+/* muted audio */
+#pulseaudio.muted {
+  opacity: 0.7;
+}
+
+/* icons slightly smaller */
+#battery, #clock, #pulseaudio {
+  font-size: 12px;
+}
+
+/* reduce tray footprint */
+#tray {
+  padding: 0 4px;
+  margin-left: 8px;
+}
+
+
+#custom-sys,
+#custom-net,
+#clock,
+#battery,
+#pulseaudio,
+#language,
+#weather {
+  padding: 2px 5px;
+  margin: 0 4px;
+  border-radius: 8px;
+  background: alpha(@c1, 0.06);
+}
+
+#custom-sys:hover,
+#custom-net:hover,
+#clock:hover,
+#battery:hover,
+#pulseaudio:hover {
+  background: alpha(@c1, 0.14);
+}

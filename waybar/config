@@ -1,0 +1,120 @@
+[
+  {
+    "height": 30,
+    "position": "top",
+    "layer": "top",
+
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+      "custom/sys",        /* компактная строка: CPU · GPU · Temp · Opera */
+      "custom/net"        /* опционально: сеть */
+    ],
+
+    "modules-right": [
+      "hyprland/language",
+      "custom/weather",
+      "pulseaudio",
+      "battery",
+      "clock",
+      "tray"
+    ],
+
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "magic": "💫"
+      },
+      "show-special": true,
+      "special-visible-only": true,
+      "persistent-workspaces": {
+      	"*": 9
+      }
+    },
+
+    "hyprland/language": {
+      "format-en": "🇺🇸",
+      "format-ru": "🇷🇺"
+    },
+
+    "custom/weather": {
+      "class": "weather",
+      "exec": "timeout 2 curl -s 'wttr.in/?format=%c+%t' || echo '☁️ --'",
+      "format": " {output} ",
+      "interval": 300
+    },
+
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "{icon} {volume}%  ",
+      "format-icons": {
+        "default": [
+          "",
+          ""
+        ],
+        "car": "",
+        "handsfree": "",
+        "headphones": "",
+        "headset": "",
+        "phone": "",
+        "portable": ""
+      },
+      "format-muted": "",
+      "on-click": "pavucontrol"
+    },
+
+    "battery": {
+      "format": "{icon} {capacity}%",
+      "format-alt": "{time} {icon}",
+      "format-charging": " {capacity}%",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "states": {
+        "critical": 1,
+        "warning": 30
+      }
+    },
+
+    "clock": {
+      "format": "{:%d.%m.%Y - %H:%M}",
+      "format-alt": "{:%A, %B %d at %R}",
+      "tooltip": true,
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "tray": {
+      "icon-size": 14,
+      "spacing": 6
+    },
+
+    "custom/sys": {
+      "exec": "~/.config/waybar/scripts/sys-summary.sh",
+      "interval": 3,
+      "tooltip": true,
+      "on-click": "kitty -e btop" 
+    },
+
+    "custom/net": {
+      "exec": "/home/ink/.config/waybar/scripts/net-speed.sh",
+      "interval": 3,
+      "tooltip": true,
+      "on-click": "kitty -e iftop"
+    }
+  }
+]
